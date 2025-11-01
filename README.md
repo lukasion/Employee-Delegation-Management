@@ -19,16 +19,19 @@ This application is designed for managing employee delegations in small and medi
 
 ## Quick Start
 1. Install dependencies:
-  ```sh 
-   npm install```
+    ```sh 
+    npm install
+    ```
 
 2. Run the app in development mode:
-   ```sh
-   npm run dev```
+    ```sh
+    npm run dev
+    ```
 
 3. Build for production:
    ```sh
-   npm run build```
+   npm run build
+   ```
 
 ## Important File Structure
 - src/main.js — application entry point, initializes Pinia, Vuetify, and i18n
