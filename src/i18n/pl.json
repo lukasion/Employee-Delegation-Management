@@ -13,7 +13,12 @@
   },
   "employees": {
     "title": "Pracownicy",
-    "info": "Zarządzaj swoimi pracownikami tutaj. Możesz dodawać, edytować i usuwać pracowników oraz przeglądać ich szczegóły."
+    "info": "Zarządzaj swoimi pracownikami tutaj. Możesz dodawać, edytować i usuwać pracowników oraz przeglądać ich szczegóły.",
+    "firstName": "Imię",
+    "lastName": "Nazwisko",
+    "position": "Stanowisko",
+    "addEmployee": "Dodaj pracownika",
+    "bankAccountNumber": "Numer konta bankowego"
   },
   "common": {
     "save": "Zapisz",
