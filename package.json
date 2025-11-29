@@ -9,7 +9,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --ext .ts,.vue",
+    "test": "vitest run"
   },
   "dependencies": {
     "@fontsource/poppins": "^5.2.7",

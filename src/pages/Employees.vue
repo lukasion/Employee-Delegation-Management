@@ -25,20 +25,80 @@
             {{ $t('employees.info') }}
           </p>
         </v-alert>
+
+        {{ employees.length }} Employees found.
+
+        <v-table
+          :items="employees"
+          class="mt-6"
+          dense
+          outlined
+        >
+          <thead>
+            <tr>
+              <th>{{ $t('employees.firstName') }}</th>
+              <th>{{ $t('employees.lastName') }}</th>
+              <th>{{ $t('employees.position') }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="employee in employees"
+              :key="employee.id"
+            >
+              <td>
+                <v-text-field
+                  v-model="employee.firstName"
+                  outlined
+                  dense
+                  variant="outlined"
+                />
+              </td>
+              <td>
+                <v-text-field
+                  v-model="employee.lastName"
+                  outlined
+                  dense
+                  variant="outlined"
+                />
+              </td>
+              <td>
+                <v-text-field
+                  v-model="employee.position"
+                  outlined
+                  dense
+                  variant="outlined"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </v-table>
+
+        <v-btn 
+          color="primary"
+          variant="contained"
+          class="mt-6"
+        >
+          {{ $t('employees.addEmployee') }}
+        </v-btn>
       </v-card>
     </v-card-text>
   </v-card>
 </template>
 
 <script lang="ts">
+import { useEmployeesStore } from '@/stores/employees.store'
 import { Component, Vue, toNative } from 'vue-facing-decorator'
+import { State } from '@/utils/PiniaDecorators'
 
 @Component({
   name: 'Employees',
   components: {  }
 })
 class Employees extends Vue {
-
+  @State(useEmployeesStore, 'employees') 
+  employees!: Employees[]
+  // test
 }
 let component = Employees;
 (function () { component = toNative(component) })()
