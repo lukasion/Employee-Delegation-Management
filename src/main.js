@@ -2,7 +2,8 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
-import {createPinia} from "pinia";
+import AppPublic from './AppPublic.vue'
+import { createPinia } from "pinia";
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
@@ -34,7 +35,12 @@ const vuetify = createVuetify({
     },
 })
 
-createApp(App)
+let app = App
+if (router.currentRoute.value.path === '/') {
+    app = AppPublic
+}
+
+createApp(app)
     .use(pinia)
     .use(vuetify)
     .use(i18n)

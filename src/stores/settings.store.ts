@@ -10,7 +10,7 @@ export const useSettingsStore = defineStore('settings', {
   actions: {
     updateSettings (payload: AppSettings) {
       this.$patch(payload)
-    },
+    }
   },
   persist: true
 })
