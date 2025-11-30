@@ -13,20 +13,7 @@
         class="pa-8 border rounded-xl"
         elevation="0"
       >
-        <v-alert
-          type="info"
-          dense
-          variant="tonal"
-          closable
-          close-label="Close Alert"
-          color="deep-purple-accent-4 mb-6"
-        >
-          <p>
-            {{ $t('employees.info') }}
-          </p>
-        </v-alert>
-
-        {{ employees.length }} Employees found.
+        <employees-header />
 
         <v-table
           :items="employees"
@@ -70,6 +57,17 @@
                   variant="outlined"
                 />
               </td>
+
+              <td class="text-center w-0">
+                <v-btn
+                  icon
+                  color="red"
+                  variant="text"
+                  @click="deleteEmployee(employee.id)"
+                >
+                  <v-icon>mdi-delete</v-icon>
+                </v-btn>
+              </td>
             </tr>
           </tbody>
         </v-table>
@@ -78,6 +76,7 @@
           color="primary"
           variant="contained"
           class="mt-6"
+          @click="addEmployee"
         >
           {{ $t('employees.addEmployee') }}
         </v-btn>
@@ -85,20 +84,27 @@
     </v-card-text>
   </v-card>
 </template>
-
+``
 <script lang="ts">
 import { useEmployeesStore } from '@/stores/employees.store'
 import { Component, Vue, toNative } from 'vue-facing-decorator'
-import { State } from '@/utils/PiniaDecorators'
+import { Action, State } from '@/utils/PiniaDecorators'
+import { Employee } from '@/types/Employee'
+import EmployeesHeader from '@/components/Employee/EmployeesHeader.vue'
 
 @Component({
   name: 'Employees',
-  components: {  }
+  components: { EmployeesHeader }
 })
 class Employees extends Vue {
   @State(useEmployeesStore, 'employees') 
-  employees!: Employees[]
-  // test
+  employees!: Employee[]
+
+  @Action(useEmployeesStore, 'addEmployee')
+  addEmployee!: () => void
+
+  @Action(useEmployeesStore, 'deleteEmployee')
+  deleteEmployee!: (id: number) => void
 }
 let component = Employees;
 (function () { component = toNative(component) })()

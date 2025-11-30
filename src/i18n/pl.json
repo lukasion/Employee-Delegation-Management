@@ -18,7 +18,8 @@
     "lastName": "Nazwisko",
     "position": "Stanowisko",
     "addEmployee": "Dodaj pracownika",
-    "bankAccountNumber": "Numer konta bankowego"
+    "bankAccountNumber": "Numer konta bankowego",
+    "deleteConfirmation": "Czy na pewno chcesz usunąć tego pracownika?"
   },
   "common": {
     "save": "Zapisz",

@@ -12,16 +12,19 @@
         </v-container>
       </v-main>
     </v-layout>
+
+    <dynamic-dialog />
   </v-app>
 </template>
 
 <script lang="ts">
 import { Component, Vue, toNative } from 'vue-facing-decorator'
 import Sidebar from '@/components/Sidebar.vue'
+import DynamicDialog from '@/components/DynamicDialog.vue'
 
 @Component({
   name: 'App',
-  components: { Sidebar: Sidebar }
+  components: { Sidebar, DynamicDialog }
 })
 class App extends Vue {
   mounted () {

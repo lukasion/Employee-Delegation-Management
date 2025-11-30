@@ -5,6 +5,8 @@
 ## Short Description
 This application is designed for managing employee delegations in small and medium-sized businesses. It allows you to store data on delegations, expenses, mileage, and company settings.
 
+[Demo: https://edelegacje.pl](https://edelegacje.pl)
+
 ## Main Features
 - Manage company settings (name, NIP, address) — store: [useSettingsStore](src/stores/settings.store.ts) (type: [AppSettings](src/types/AppSettings.ts))
 - Settings view: [src/pages/Settings.vue](src/pages/Settings.vue)
